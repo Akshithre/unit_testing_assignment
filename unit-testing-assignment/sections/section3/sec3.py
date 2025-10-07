@@ -1,15 +1,25 @@
+
+
 import unittest
+from code.mycal import Calculations
 
-def divide(a, b):
-    return a / b
+class TestCalculations(unittest.TestCase):
 
-class TestDivision(unittest.TestCase):
-    def test_valid_division(self):
-        self.assertAlmostEqual(divide(10, 2), 5.0)
+    def test_sum(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_sum(), 10, 'The sum is wrong.')
 
-    def test_divide_by_zero(self):
-        with self.assertRaises(ZeroDivisionError):
-            divide(10, 0)
+    def test_diff(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_difference(), 6, 'The difference is wrong.')
 
-if __name__ == "__main__":
+    def test_product(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_product(), 16, 'The product is wrong.')
+
+    def test_quotient(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_quotient(), 4, 'The quotient is wrong.')
+
+if __name__ == '__main__':
     unittest.main()

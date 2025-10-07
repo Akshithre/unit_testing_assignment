@@ -1,12 +1,26 @@
 
-
 import unittest
-from code.mycal import Calculations 
+class Calculations:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def get_sum(self):
+        return self.a + self.b
+
+    def get_difference(self):
+        return self.a - self.b
+
+    def get_product(self):
+        return self.a * self.b
+
+    def get_quotient(self):
+        return self.a / self.b
+
 
 class TestCalculations(unittest.TestCase):
 
     def setUp(self):
-
         self.calculation = Calculations(8, 2)
 
     def test_sum(self):
@@ -21,5 +35,5 @@ class TestCalculations(unittest.TestCase):
     def test_quotient(self):
         self.assertEqual(self.calculation.get_quotient(), 4, 'The quotient is wrong.')
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main() # Not needed when running via 'python -m unittest'

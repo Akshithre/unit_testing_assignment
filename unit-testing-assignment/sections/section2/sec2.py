@@ -1,12 +1,13 @@
+
 import unittest
+from code.mycal import Calculations
 
-def is_even(num):
-    return num % 2 == 0
+class TestCalculations(unittest.TestCase):
 
-class TestNumberCheck(unittest.TestCase):
-    def test_even(self):
-        self.assertTrue(is_even(10))
-        self.assertFalse(is_even(7))
+    def test_sum(self):
+        calculation = Calculations(8, 2)
+        # Intentionally setting the expected value to 11 to demonstrate a failing test
+        self.assertEqual(calculation.get_sum(), 11, 'The sum is wrong.')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -1,12 +1,12 @@
+
 import unittest
+from code.mycal import Calculations 
 
-def add(a, b):
-    return a + b
+class TestCalculations(unittest.TestCase):
 
-class TestMathBasics(unittest.TestCase):
-    def test_addition(self):
-        self.assertEqual(add(2, 3), 5)
-        self.assertNotEqual(add(1, 1), 3)
+    def test_sum(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_sum(), 10, 'The sum is wrong.')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

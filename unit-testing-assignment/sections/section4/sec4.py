@@ -1,25 +1,24 @@
+
 import unittest
+from code.mycal import Calculations 
 
-class ShoppingCart:
-    def __init__(self):
-        self.items = []
+class TestCalculations(unittest.TestCase):
 
-    def add_item(self, item):
-        self.items.append(item)
+    def not_a_test_sum(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_sum(), 10, 'The sum is wrong.')
 
-    def count(self):
-        return len(self.items)
+    def test_diff(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_difference(), 6, 'The difference is wrong.')
 
-class TestCart(unittest.TestCase):
-    def setUp(self):
-        self.cart = ShoppingCart()
+    def test_product(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_product(), 16, 'The product is wrong.')
 
-    def test_add_item(self):
-        self.cart.add_item("apple")
-        self.assertEqual(self.cart.count(), 1)
+    def test_quotient(self):
+        calculation = Calculations(8, 2)
+        self.assertEqual(calculation.get_quotient(), 4, 'The quotient is wrong.')
 
-    def tearDown(self):
-        self.cart = None
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
